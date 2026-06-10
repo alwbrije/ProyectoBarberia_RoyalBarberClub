@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marco Teórico - Royal Barber Club</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          Segoe UI,
+          Tahoma,
+          sans-serif;
+        background: #0f0f0f;
+        color: #eaeaea;
+        line-height: 1.8;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(15, 15, 15, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 18px 8%;
+        border-bottom: 1px solid #d4af3730;
+        z-index: 999;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        color: #d4af37;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+      .menu a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+      }
+      .hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, #111, #1b1b1b);
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+          url("img/fondo1.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .hero h1 {
+        font-size: 4rem;
+        color: #d4af37;
+      }
+      .hero p {
+        max-width: 700px;
+        margin: auto;
+      }
+      .container {
+        width: min(1200px, 92%);
+        margin: auto;
+      }
+      .card {
+        background: #181818;
+        border: 1px solid #d4af3725;
+        border-radius: 20px;
+        padding: 35px;
+        margin-bottom: 30px;
+        color: #e5e5e5;
+      }
+      .card h2 {
+        color: #d4af37;
+        margin-bottom: 20px;
+      }
+      ul {
+        padding-left: 25px;
+      }
+      .gallery img {
+        width: 100%;
+        border-radius: 20px;
+        border: 2px solid #d4af37;
+      }
+      footer {
+        padding: 40px;
+        text-align: center;
+        border-top: 1px solid #d4af3720;
+      }
+      /* ==========================
+NAVBAR PREMIUM ROYAL BARBER
+========================== */
+
+      .navbar {
+        background: rgba(10, 10, 10, 0.82) !important;
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        padding: 18px 0;
+        transition: 0.4s;
+      }
+
+      .navbar-brand {
+        color: #d4af37 !important;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .navbar-brand:hover {
+        color: #f5d77a !important;
+      }
+
+      .navbar-nav {
+        gap: 10px;
+      }
+
+      .nav-link {
+        color: white !important;
+        padding: 12px 18px !important;
+        border-radius: 12px;
+        transition: 0.35s;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #d4af37 !important;
+        background: rgba(212, 175, 55, 0.08);
+        transform: translateY(-2px);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 5px;
+        width: 0;
+        height: 2px;
+        background: #d4af37;
+        transition: 0.3s;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 60%;
+      }
+
+      /* BOTON MOBILE */
+
+      .navbar-toggler {
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        box-shadow: none !important;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none !important;
+      }
+
+      .navbar-toggler-icon {
+        filter: brightness(1.3);
+      }
+
+      /* MENU MOBILE */
+
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          margin-top: 20px;
+          padding: 20px;
+          border-radius: 20px;
+
+          background: rgba(15, 15, 15, 0.95);
+
+          border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-link {
+          margin-bottom: 5px;
+        }
+      }
+
+      /* EFECTO GOLD */
+
+      .gold {
+        background: linear-gradient(90deg, #d4af37, #f5d77a, #d4af37);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* SHADOW */
+
+      .navbar {
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.35),
+          0 0 20px rgba(212, 175, 55, 0.03);
+      }
+      /* ==========================
+   DROPDOWN PREMIUM ROYAL
+========================== */
+
+      .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: all 0.35s ease;
+
+        background: rgba(15, 15, 15, 0.97);
+        backdrop-filter: blur(20px);
+
+        border: 1px solid rgba(212, 175, 55, 0.18);
+        border-radius: 18px;
+
+        min-width: 280px;
+        padding: 12px;
+
+        margin-top: 15px;
+
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.45),
+          0 0 30px rgba(212, 175, 55, 0.08);
+      }
+
+      /* Aparece con hover */
+
+      .nav-item.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Items */
+
+      .dropdown-item {
+        color: #e5e5e5;
+        border-radius: 12px;
+        padding: 12px 16px;
+        transition: 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .dropdown-item:hover {
+        background: rgba(212, 175, 55, 0.12);
+        color: #d4af37;
+
+        transform: translateX(6px);
+      }
+
+      /* Flechita */
+
+      /* Glow dorado */
+
+      .dropdown-menu::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        border-radius: 18px;
+
+        padding: 1px;
+
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.4),
+          transparent,
+          rgba(212, 175, 55, 0.2)
+        );
+
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+
+        -webkit-mask-composite: xor;
+
+        pointer-events: none;
+      }
+
+      /* Desktop */
+
+      @media (min-width: 992px) {
+        .dropdown:hover > .dropdown-menu {
+          display: block;
+        }
+      }
+
+      /* Mobile */
+
+      @media (max-width: 991px) {
+        .dropdown-menu {
+          display: none;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          margin-top: 10px;
+        }
+
+        .dropdown-menu.show {
+          display: block;
+        }
+        .nav-item.dropdown {
+          position: relative;
+        }
+
+        .nav-item.dropdown::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -8px;
+
+          width: 0;
+          height: 3px;
+
+          background: #d4af37;
+
+          transition: 0.3s;
+
+          transform: translateX(-50%);
+        }
+
+        .nav-item.dropdown:hover::after {
+          width: 70%;
+        }
+      }
+      /* ===================================
+   NAVBAR ULTRA PREMIUM ROYAL BARBER
+=================================== */
+
+      /* NAVBAR */
+
+      .navbar {
+        background: rgba(10, 10, 10, 0.78) !important;
+        backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+
+        box-shadow:
+          0 10px 40px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(212, 175, 55, 0.05);
+
+        transition: 0.4s;
+      }
+
+      /* LOGO */
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        font-weight: 800;
+        position: relative;
+      }
+
+      .gold {
+        background: linear-gradient(90deg, #d4af37, #fff2b3, #d4af37);
+
+        background-size: 200% auto;
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: goldMove 5s linear infinite;
+      }
+
+      @keyframes goldMove {
+        from {
+          background-position: 0% center;
+        }
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      /* LINKS */
+
+      .navbar-nav {
+        gap: 8px;
+      }
+
+      .nav-link {
+        color: white !important;
+
+        padding: 12px 18px !important;
+
+        border-radius: 14px;
+
+        font-weight: 500;
+
+        transition: 0.35s;
+
+        position: relative;
+      }
+
+      /* EFECTO HOVER */
+
+      .nav-link:hover {
+        color: #d4af37 !important;
+
+        background: rgba(212, 175, 55, 0.08);
+
+        transform: translateY(-3px);
+      }
+
+      /* LINEA DORADA */
+
+      .nav-link::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+        bottom: 6px;
+
+        width: 0;
+        height: 2px;
+
+        background: #d4af37;
+
+        transition: 0.35s;
+
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 65%;
+      }
+
+      /* ITEM ACTIVO */
+
+      .nav-link.active {
+        color: #d4af37 !important;
+        background: rgba(212, 175, 55, 0.08);
+      }
+
+      /* ===================================
+   DROPDOWN PREMIUM
+=================================== */
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: block;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(20px) scale(0.96);
+
+        transition: 0.35s;
+
+        background: rgba(12, 12, 12, 0.96);
+
+        backdrop-filter: blur(25px);
+
+        border: 1px solid rgba(212, 175, 55, 0.15);
+
+        border-radius: 20px;
+
+        min-width: 280px;
+
+        padding: 12px;
+
+        margin-top: 18px;
+
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(212, 175, 55, 0.08);
+      }
+
+      /* APARECE CON HOVER */
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+
+        transform: translateY(0) scale(1);
+      }
+
+      /* ITEMS */
+
+      .dropdown-item {
+        color: #ddd;
+
+        padding: 12px 15px;
+
+        border-radius: 12px;
+
+        transition: 0.3s;
+      }
+
+      .dropdown-item:hover {
+        color: #d4af37;
+
+        background: rgba(212, 175, 55, 0.1);
+
+        transform: translateX(8px);
+      }
+
+      /* BRILLO DEL MENU */
+
+      .dropdown-menu::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        border-radius: 20px;
+
+        padding: 1px;
+
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.35),
+          transparent,
+          rgba(212, 175, 55, 0.15)
+        );
+
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+
+        -webkit-mask-composite: xor;
+
+        pointer-events: none;
+      }
+
+      /* TOGGLER */
+
+      .navbar-toggler {
+        border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none !important;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          margin-top: 20px;
+
+          padding: 20px;
+
+          border-radius: 20px;
+
+          background: rgba(15, 15, 15, 0.96);
+
+          border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .dropdown-menu {
+          display: none;
+
+          opacity: 1;
+          visibility: visible;
+
+          transform: none;
+
+          margin-top: 10px;
+        }
+
+        .dropdown-menu.show {
+          display: block;
+        }
+      }
+      h3 {
+        color: #948607;
+        margin-top: 2rem;
+      }
+
+      .section {
+        margin-bottom: 2.5rem;
+      }
+
+      ul {
+        padding-left: 1.8rem;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .req-item {
+        padding: 12px 18px;
+        background: #f9f9f90c;
+        border-left: 5px solid var(--accent);
+        border-radius: 6px;
+        margin-bottom: 12px;
+      }
+
+      .subsection {
+        background: #b2a70d00;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .list-title {
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand gold fw-bold" href="#"> ROYAL BARBER CLUB </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+              <!-- Inicio -->
+              <li class="nav-item dropdown position-relative">
+                <a class="nav-link" href="../index.html">Inicio</a>
+              </li>
+
+              <!-- Marco Teórico -->
+              <li class="nav-item dropdown position-relative">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="marco_teorico_redisenado.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Marco Teórico
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#introduccion"
+                    >
+                      Introducción
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#antecedentes"
+                    >
+                      Antecedentes
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#justificacion"
+                    >
+                      Justificación
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#planteamiento"
+                    >
+                      Planteamiento
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#objetivos"
+                    >
+                      Propósitos del Estudio
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#metodologia"
+                    >
+                      Metodología
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#analisis_requerimientos"
+                    >
+                      Analisis y levantamiento de requerimientos
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="marco_teorico_redisenado.html#planificacionn"
+                    >
+                      Planificación
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Analisis Estructurado -->
+              <li class="nav-item dropdown position-relative">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="analisis_estructurado_redisenado.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Análisis Estructurado
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="analisis_estructurado_redisenado.html#dfd"
+                    >
+                      Modelo Ambiental
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="analisis_estructurado_redisenado.html#diccionario"
+                    >
+                      Modelo de comportamientos
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Orientado a Objetos -->
+              <li class="nav-item dropdown position-relative">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="orientado_objetos.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Orientado a Objetos
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="orientado_objetos.html#actores"
+                    >
+                      Actores del Sistema
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="orientado_objetos.html#uml">
+                      Diagramas UML
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="orientado_objetos.html#mer">
+                      Modelo Entidad Relación
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Videos -->
+              <li class="nav-item dropdown position-relative">
+                <a class="nav-link" href="videos.html"> Videos </a>
+              </li>
+
+              <!-- Contactos -->
+              <li class="nav-item dropdown position-relative">
+                <a class="nav-link" href="contactos.html"> Contactos </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Marco Teórico</h1>
+        <p>Sistema de Gestión Integral para Royal Barber Club</p>
+      </div>
+    </section>
+
+    <div class="container" id="introduccion">
+      <div class="card">
+        <h2>I.1 Introducción</h2>
+        <p>
+          Royal Barber Club es una empresa de servicios de barbería con
+          presencia en la ciudad de El Alto, La Paz, que opera actualmente con
+          dos sucursales ubicadas en Senkata y Villa Adela. Fundada hace
+          aproximadamente tres años y medio por Víctor Manolo Calle Sánchez, la
+          empresa ha crecido hasta contar con un equipo de 10 barberos, todos
+          formados en su propia academia. A pesar de este crecimiento, la
+          gestión del negocio continúa realizándose de forma manual y empírica,
+          apoyándose en herramientas informales como WhatsApp, registros en
+          papel y hojas de cálculo, lo que genera pérdida de información,
+          errores en liquidaciones y dificultades para controlar el inventario
+          de manera eficiente. Ante esta problemática, el presente proyecto
+          propone el desarrollo de un Sistema de Gestión Integral para Royal
+          Barber Club, una plataforma web que centralice y automatice los
+          principales procesos operativos, administrativos y financieros del
+          negocio. El sistema abarcará módulos de gestión de citas, control de
+          inventarios, cálculo de comisiones, administración de personal y
+          generación de reportes, con el objetivo de digitalizar las operaciones
+          de ambas sucursales y brindar al administrador información confiable y
+          en tiempo real para la toma de decisiones.
+        </p>
+      </div>
+
+      <div class="card" id="antecedentes">
+        <h2>I.2 Antecedentes</h2>
+        <p>
+          Royal Barber Club cuenta actualmente con dos sucursales estratégicas
+          (Senkata y Villa Adela) en la ciudad de El Alto, La Paz.
+          Históricamente, la gestión de citas y el control de inventarios se han
+          realizado mediante herramientas genéricas (WhatsApp y hojas de
+          cálculo), lo que dificulta la consolidación de datos. La empresa no
+          solo ofrece servicios de barbería, sino que también gestiona
+          capacitaciones internas y seminarios (asociados a marcas como
+          OLEUNBEATY), lo que añade una capa de complejidad operativa que las
+          soluciones comerciales estándar no cubren satisfactoriamente para la
+          realidad boliviana.
+        </p>
+      </div>
+      <div class="card" id="justificacion">
+        <h2 class="subtitulo">I.3. Justificación y alcances</h2>
+        <p><strong>7.1. Justificación</strong></p>
+        <ul>
+          <li>
+            <strong>Justificación Técnica:</strong> El proyecto introduce un
+            enfoque formal de ingeniería de software para reemplazar
+            herramientas genéricas e informales (WhatsApp y registros fisicos)
+            por una plataforma web integrada y robusta.
+          </li>
+          <li>
+            <strong>Justificación Económica / Financiera:</strong> Al
+            automatizar el cálculo de comisiones escalonadas y el cruce de
+            datos, se eliminan las pérdidas por errores humanos en las
+            liquidaciones. Además, un control eficiente del inventario evitará
+            compras reactivas y pérdidas de capital por productos vencidos.
+          </li>
+          <li>
+            <strong>Justificación Operativa:</strong> El sistema optimizará el
+            tiempo de la capacidad instalada de los barberos. La visibilidad de
+            los horarios y citas previas reducirá drásticamente los tiempos
+            muertos en Senkata y Villa Adela.
+          </li>
+        </ul>
+        <p><strong>7.2. Alcances</strong></p>
+        <ul>
+          <li>
+            <strong>Alcance Funcional:</strong> El sistema incluirá la gestión y
+            asignación de citas en tiempo real, el control automatizado de
+            inventarios por sucursal con alertas de stock, y un módulo
+            financiero para calcular la rentabilidad, productividad y comisiones
+            (35%, 40% y 50%) del personal.
+          </li>
+          <li>
+            <strong>Alcance Geográfico:</strong> El sistema centralizará
+            exclusivamente la información y operaciones de las dos sucursales
+            estratégicas actuales: Senkata y Villa Adela en la ciudad de El
+            Alto.
+          </li>
+          <li>
+            <strong>Límites:</strong> El sistema no contempla la facturación
+            electrónica directa con el sistema tributario nacional en esta
+            primera fase.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" id="planteamiento">
+        <h2>I.4 Planteamiento del Problema</h2>
+        <ul>
+          <li>
+            Actualmente, Royal Barber Club opera bajo un esquema de gestión
+            empírica y descentralizada. La información generada en las
+            sucursales de Senkata y Villa Adela fluye a través de canales
+            informales (como la mensajería instantánea y registros fisicos), lo
+            que provoca un decaimiento de datos. Esta falta de estructura
+            técnica deriva en tres conflictos críticos:.
+          </li>
+          <li>
+            Inconsistencia en el Control Financiero: El cálculo manual de
+            comisiones (escalas del 35%, 40% y 50%) es propenso a errores
+            humanos, lo que genera fricción e incertidumbre con el personal y
+            falta de transparencia en las liquidaciones.
+          </li>
+          <li>
+            Desincronización de Procesos Operativos: La ausencia de citas
+            previas sin un sistema automatizado provoca tiempos muertos
+            provocando una subutilización de la capacidad instalada de los
+            barberos.
+          </li>
+          <li>
+            Vulnerabilidad de Activos: La ausencia de un control de inventario
+            con alertas de stock y caducidad impide una gestión eficiente de la
+            cadena de suministro con proveedores.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>I.5. Formulario del Problema</h2>
+        <p>
+          <strong>Problema Central:</strong> ¿De qué manera un sistema de
+          información web centralizado optimizará la gestión administrativa,
+          operativa y financiera en las sucursales de "Royal Barber Club"?
+        </p>
+        <p><strong>Problemas Secundarios:</strong></p>
+        <ul>
+          <li>
+            ¿Cómo afecta la ausencia de un sistema automatizado de citas a la
+            eficiencia operativa y al aprovechamiento de la capacidad instalada
+            de los barberos en las sucursales de Senkata y Villa Adela?
+          </li>
+          <li>
+            ¿De qué manera el control manual e informal del inventario de
+            productos genera pérdidas económicas por falta de alertas de stock
+            mínimo y control de caducidad en Royal Barber Club?
+          </li>
+          <li>
+            ¿En qué medida el cálculo manual de comisiones escalonadas (35%, 40%
+            y 50%) provoca errores e inconformidades en las liquidaciones del
+            personal de las sucursales?
+          </li>
+          <li>
+            ¿Cómo la dispersión y el registro informal de la información de
+            clientes, asistencia y capacitaciones limitan la capacidad de
+            análisis y toma de decisiones del administrador de Royal Barber
+            Club?
+          </li>
+        </ul>
+      </div>
+      <div class="card" id="objetivos">
+        <h2>I.6. Propositos del Estudio (Objetivos Generales y Objetivos)</h2>
+        <h2 class="subtitulo">Objetivo General</h2>
+        <p>
+          Desarrollar un sistema de información web para la empresa "Royal
+          Barber Club" que permitirá centralizar y automatizar la gestión
+          operativa, el control de inventarios y la administración financiera de
+          sus sucursales, reduciendo los errores humanos y optimizando el uso de
+          la capacidad instalada.
+        </p>
+
+        <h2 class="subtitulo">Objetivos específicos</h2>
+        <ul>
+          <li>
+            Identificar y registrar detalladamente los requerimientos
+            funcionales y no funcionales del negocio mediante el levantamiento
+            de información con el personal administrativo y barberos de las
+            sucursales de Senkata y Villa Adela.
+          </li>
+          <li>
+            Diseñar un módulo de gestión de citas automatizado que elimine la
+            descentralización y los registros manuales, permitiendo visibilizar
+            los horarios libres y asignar barberos eficientemente para mitigar
+            el desperdicio de tiempo.
+          </li>
+          <li>
+            Desarrollar un módulo de inventarios con alertas de stock mínimo y
+            caducidad de productos, sustituyendo el seguimiento empírico actual
+            por un control técnico y automatizado del flujo de insumos.
+          </li>
+          <li>
+            Implementar un motor de cálculo financiero automatizado para la
+            liquidación de comisiones del personal basadas en las escalas
+            establecidas (35%, 40% у 50%), garantizando la transparencia y
+            precisión en el cruce de información.
+          </li>
+          <li>
+            Realizar pruebas de calidad, rendimiento y usabilidad del software,
+            asegurando la correcta integración de los datos de ambas sucursales
+            antes del despliegue final.
+          </li>
+        </ul>
+      </div>
+      <div class="card" id="metodologia">
+        <h2 class="subtitulo">I.7. Método, medios e instrumentos</h2>
+        <p>
+          Para el desarrollo del Sistema de Gestión Integral de Royal Barber
+          Club, se emplearon los siguientes métodos de investigación:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Método Descriptivo:</strong> Se utilizó el método
+            descriptivo para caracterizar la situación actual de Royal Barber
+            Club en cuanto a sus procesos de gestión de citas, control de
+            inventario, liquidación de comisiones y administración del personal.
+            A través de la observación directa y la entrevista con el
+            propietario y administrador general, Víctor Manolo Calle Sánchez, se
+            identificaron los principales problemas operativos.
+          </li>
+          <li>
+            <strong>Método Analítico:</strong> Se aplicó el método analítico
+            para descomponer el problema central en sus componentes individuales
+            y estudiar cada uno de forma independiente. El análisis de los
+            problemas secundarios permitió definir los módulos específicos que
+            debe incorporar el sistema: gestión de citas, inventario, finanzas,
+            CRM y reportes.
+          </li>
+          <li>
+            <strong>Método Bibliográfico / Documental:</strong> Se recurrió a la
+            revisión documental y bibliográfica para construir el marco teórico
+            y de antecedentes del proyecto. Se consultaron trabajos académicos
+            previos sobre sistemas de gestión para negocios de servicios
+            similares, así como fuentes especializadas.
+          </li>
+          <li>
+            <strong>Método de Entrevista:</strong> Se realizó una entrevista
+            estructurada con el propietario de Royal Barber Club, con el
+            objetivo de recopilar información de primera fuente sobre los
+            procesos actuales. La información obtenida fue determinante para
+            formular el planteamiento del problema y los objetivos del proyecto.
+          </li>
+          <section id="entrevista">
+            <h2 class="subtitulo">Entrevista Oficial</h2>
+            <p>
+              <strong
+                >Parte 1: Introducción y Datos del Dueño / Visión del
+                Negocio</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Historia de la barbería: Víctor Manolo Calle Sánchez era barbero
+                convencional con un trabajo estable en barberías ajenas. Hace
+                aproximadamente 3 años y medio decidió emprender y abrió su
+                propia barbería con el objetivo de brindar un mejor servicio a
+                los clientes y crear un entorno más favorable para los barberos.
+              </li>
+              <li>
+                Nombre completo y cargo: Víctor Manolo Calle Sánchez Dueño y
+                Administrador General. Además, es educador: los 10 barberos
+                actuales aprendieron la profesión en su academia de barberos.
+              </li>
+              <li>
+                Visión a futuro: Crear una gran franquicia de barberías,
+                ofreciendo los mejores servicios del mercado y construyendo un
+                entorno cómodo y profesional para sus trabajadores.
+              </li>
+            </ul>
+
+            <p>
+              <strong
+                >Parte 2: Información General del Negocio y Sucursales</strong
+              >
+            </p>
+            <ul>
+              <li>
+                Número de sucursales: 2 sucursales operativas + 1 academia de
+                barberos.
+              </li>
+              <li>Ubicaciones: Sucursal 1 Senkata, Sucursal 2 Villa Adela.</li>
+              <li>
+                Personal total: 10 barberos. Horario de atención: 900 a.m. 900
+                p.m. (igual en ambas sucursales).
+              </li>
+              <li>
+                Días y meses pico: Meses de mayor ganancia (noviembre, diciembre
+                y enero). Días de mayor afluencia (viernes, sábado y domingo).
+              </li>
+            </ul>
+
+            <p>
+              <strong>Parte 3: Personal y Organización de Empleados</strong>
+            </p>
+            <ul>
+              <li>
+                En el futuro: Desea incorporar un encargado por sucursal (con
+                comisión extra) que controle inventario y otras tareas
+                administrativas durante la semana.
+              </li>
+              <li>
+                Condiciones laborales: Los barberos trabajan fijos con horarios
+                variables (jornada completa, medio tiempo o solo fines de
+                semana). No utilizan contratos formales (se basa en confianza).
+              </li>
+              <li>
+                Cálculo de comisiones: Corte general: 50% para el barbero.
+                Servicios que usan productos de la barbería (tintes,
+                ondulaciones, lavados, exfoliantes, etc.): 3540% para el
+                barbero.
+              </li>
+              <li>
+                Capacitaciones: Se realizan aproximadamente cada 2 meses. Solo
+                para barberos con al menos 6 meses de antigüedad.
+              </li>
+            </ul>
+
+            <p><strong>Parte 7: Inventario y Gestión de Productos</strong></p>
+            <ul>
+              <li>
+                Deseos del sistema: Alertas automáticas de stock bajo y
+                sugerencias de reorden. Control de caducidad y lotes.
+                Diferenciar consumo interno vs. venta al público.
+              </li>
+              <li id="analisis_requerimientos">
+                Colaboración con marcas: Actualmente trabajan con OLEUNBEATY.
+                Desea registrar por marca: razón social, contacto,
+                seminarios/capacitaciones ofrecidas y productos que proveen.
+              </li>
+            </ul>
+          </section>
+        </ul>
+      </div>
+      <div class="card gallery">
+        <h2 class="titulo">I.8 Analisis y levantamiento de requerimientos</h2>
+        <h2 class="subtitulo">Árbol de problemas</h2>
+        <img src="img/arbol_problemas.jpg" alt="Árbol de Problemas" />
+        <h2 class="subtitulo">Árbol de Objetivos</h2>
+        <img src="img/arbol_objetivos.png" alt="Árbol de objetivos" />
+        <br /><br />
+        <h2 class="titulo">Requerimientos del sistema</h2>
+        <!-- Requerimientos Funcionales -->
+        <section class="section">
+          <h2>1. Requerimientos Funcionales</h2>
+
+          <!-- 1.1 Gestión de Sucursales -->
+          <div class="subsection">
+            <h3>1.1 Gestión de Sucursales</h3>
+            <ul>
+              <li class="req-item">
+                El sistema debe permitir registrar y gestionar las dos
+                sucursales actuales (<strong>Senkata</strong> y
+                <strong>Villa Adela</strong>).
+              </li>
+              <li class="req-item">
+                Cada sucursal tendrá su propia agenda, control de inventario y
+                reportes independientes.
+              </li>
+              <li class="req-item">
+                El Administrador podrá consultar información consolidada de
+                todas las sucursales.
+              </li>
+            </ul>
+          </div>
+
+          <!-- 1.2 Gestión de Usuarios y Roles -->
+          <div class="subsection">
+            <h3>1.2 Gestión de Usuarios y Roles del Sistema</h3>
+            <p><strong>Usuarios Internos (Administrativo):</strong></p>
+            <ul>
+              <li><strong>Administrador (Dueño):</strong> Acceso total.</li>
+              <li>
+                <strong>Encargado:</strong> Agenda, inventario, caja y personal.
+              </li>
+              <li>
+                <strong>Barbero:</strong> Ver su agenda, registrar atenciones,
+                consultar comisiones.
+              </li>
+            </ul>
+
+            <p><strong>Usuarios Externos (Clientes):</strong></p>
+            <ul>
+              <li>
+                Podrá registrarse, iniciar sesión, reservar citas, ver su
+                historial, consultar servicios y promociones.
+              </li>
+            </ul>
+
+            <p><strong>Datos a guardar:</strong></p>
+            <ul>
+              <li>Correo electrónico</li>
+              <li>Nombre de usuario</li>
+              <li>Contraseña</li>
+              <li>ID de Usuario</li>
+            </ul>
+            <ul>
+              <li>
+                Registro con correo, contraseña, nombre completo y nombre de
+                usuario.
+              </li>
+              <li>Recuperación de contraseña y verificación de correo.</li>
+              <li>Inicio y cierre de sesión seguro.</li>
+            </ul>
+          </div>
+
+          <!-- 1.3 Gestión de Empleados -->
+          <div class="subsection">
+            <h3>1.3 Gestión de Empleados</h3>
+            <ul>
+              <li>CRUD completo de empleados.</li>
+              <li>
+                Datos: nombre completo, CI, teléfono, dirección, fecha de
+                nacimiento, sucursal asignada, foto opcional, rol.
+              </li>
+              <li>
+                Tipo de horario (jornada completa, medio tiempo, fines de
+                semana).
+              </li>
+              <li>Control de asistencia (ingreso y salida).</li>
+              <li>
+                Gestión de vacaciones, permisos y días libres (con atributo de
+                estado: activo, permiso, vacaciones, día libre).
+              </li>
+              <li>
+                Cálculo automático de comisiones:
+                <ul>
+                  <li>50% para cortes generales.</li>
+                  <li>
+                    35-40% para servicios que usan productos de la barbería.
+                  </li>
+                </ul>
+              </li>
+              <li>Registro de capacitaciones y reuniones internas.</li>
+            </ul>
+          </div>
+
+          <!-- 1.4 Gestión de Clientes -->
+          <div class="subsection">
+            <h3>1.4 Gestión de Clientes (CRM)</h3>
+            <ul>
+              <li>
+                Registro y perfil: nombre completo, teléfono, oficio, fecha de
+                nacimiento, foto opcional.
+              </li>
+              <li>Historial detallado de servicios por cliente.</li>
+              <li>Preferencias (barbero preferido).</li>
+              <li>Tarjetas de fidelidad y clientes frecuentes.</li>
+              <li>
+                Los clientes podrán ver su historial y puntos en el portal web.
+              </li>
+              <li>Búsqueda rápida por nombre o CI.</li>
+              <li>
+                Valoración de servicios (1-5 estrellas + comentario opcional).
+              </li>
+            </ul>
+          </div>
+
+          <!-- 1.5 a 1.14 -->
+          <div class="subsection">
+            <h3>1.5 Gestión de Servicios</h3>
+            <ul>
+              <li>CRUD de servicios.</li>
+              <li>
+                Datos: nombre, descripción, precio actual, duración aproximada
+                (minutos).
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.6 Gestión de Combos y Promociones</h3>
+            <ul>
+              <li>Crear y gestionar combos/paquetes.</li>
+              <li>Datos: lista de servicios, estado y descuento (%).</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.7 Gestión de Agenda y Reservaciones</h3>
+            <ul>
+              <li>Calendario por sucursal en tiempo real.</li>
+              <li>
+                Clientes pueden ver disponibilidad, reservar, modificar o
+                cancelar citas.
+              </li>
+              <li>Notificaciones automáticas (WhatsApp / Email).</li>
+              <li>Bloqueo de horarios para descansos, capacitaciones, etc.</li>
+              <li>
+                Datos de cita: fecha, hora, sucursal, barbero, cliente,
+                servicios, estado, precio, adelanto.
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.8 Gestión de Atenciones / Historial de Servicios</h3>
+            <ul>
+              <li>Registro de servicios realizados (con o sin cita previa).</li>
+              <li>
+                Datos: fecha/hora real, cliente, barbero, servicios,
+                precio/descuentos, puntuación, detalles.
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.9 Gestión de Productos e Inventario</h3>
+            <ul>
+              <li>
+                Registro de productos (nombre, descripción, precio, costo,
+                proveedor).
+              </li>
+              <li>
+                Control de stock, alertas de bajo stock, control de caducidad.
+              </li>
+              <li>Gestión de marcas (ej. OLEUNBEATY).</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.10 Gestión de Pagos</h3>
+            <ul>
+              <li>Registro de ventas (servicios y productos).</li>
+              <li>Métodos: Efectivo, QR.</li>
+              <li>Cobro de adelantos mediante QR dinámico.</li>
+              <li>Confirmación manual de pago por Admin/Encargado.</li>
+              <li>Cálculo automático de comisiones.</li>
+              <li>Cierre de caja diario/semanal.</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.11 Reportes y Dashboards</h3>
+            <ul>
+              <li>
+                Reportes semanales y mensuales de ingresos, productividad,
+                servicios más solicitados, etc.
+              </li>
+              <li>Dashboards con gráficos.</li>
+              <li>Clientes pueden ver su historial personal.</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.12 Gestión de Capacitaciones</h3>
+            <ul>
+              <li>
+                Registro completo: fecha, hora, temática, lugar, asistentes e
+                instructor.
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.13 Integraciones</h3>
+            <ul>
+              <li>Integración con WhatsApp Business (futuro deseable).</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>1.14 Portal para Clientes (Web)</h3>
+            <ul>
+              <li>Registro e inicio de sesión.</li>
+              <li>Catálogo de servicios.</li>
+              <li>Reservar citas en línea.</li>
+              <li>Ver historial, puntos de fidelidad.</li>
+              <li>Editar perfil.</li>
+              <li>Notificaciones de promociones.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Requerimientos No Funcionales -->
+        <section class="section">
+          <h2>2. Requerimientos No Funcionales</h2>
+          <div class="subsection">
+            <ul>
+              <li>
+                <strong>Arquitectura:</strong> Aplicación web responsive
+                (computadora, celular y tablets).
+              </li>
+              <li>
+                <strong>Módulos:</strong> Panel Administrativo (rol-based) +
+                Portal Público para Clientes.
+              </li>
+              <li>
+                <strong>Usabilidad:</strong> Interfaz moderna, intuitiva y
+                atractiva.
+              </li>
+              <li>
+                <strong>Seguridad:</strong> Autenticación segura, roles de
+                acceso, protección de datos (Ley boliviana).
+              </li>
+              <li>
+                <strong>Modo Offline:</strong> Soporte parcial (atenciones
+                walk-in y cierre de caja).
+              </li>
+              <li>
+                <strong>Escalabilidad:</strong> Preparado para agregar más
+                sucursales.
+              </li>
+              <li id="planificacionn">
+                <strong>Disponibilidad:</strong> 24/7 para clientes.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="card gallery">
+        <h2 class="titulo">I.9. Planificación de Actividades</h2>
+        <h2 class="subtitulo">DIAGRAMA DE GANT</h2>
+        <img src="img/DIAGRAMA_GANT.png" alt="Gantt" />
+        <br /><br />
+        <h2 class="subtitulo">DIAGRMA DE PERT</h2>
+        <img src="img/DIAGRAMA_PERT.png" alt="Pert" />
+      </div>
+    </div>
+
+    <footer>
+      <div class="container text-center">
+        <h3 class="gold">ROYAL BARBER CLUB</h3>
+        <p>Sistema de Gestión Integral</p>
+        <p>📍 El Alto, La Paz - Bolivia</p>
+        <p>📞 +591 68170427</p>
+        <p>✉ royalbarberclub@gmail.com</p>
+      </div>
+    </footer>
+  </body>
+</html>

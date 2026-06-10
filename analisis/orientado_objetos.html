@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orientado a Objetos - Royal Barber</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+      :root {
+        --gold: #d4af37;
+        --gold-light: #f5d77a;
+        --dark: #0f1115;
+        --dark-2: #171a21;
+        --dark-3: #1f2430;
+        --white: #ffffff;
+        --text: #d8d8d8;
+        --glass: rgba(255, 255, 255, 0.04);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background:
+          radial-gradient(circle at top left, #2d2310 0%, transparent 40%),
+          radial-gradient(circle at bottom right, #1f2c45 0%, transparent 35%),
+          var(--dark);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* SCROLL */
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #111;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--gold), #8b6a15);
+        border-radius: 10px;
+      }
+
+      /* HEADER */
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 10, 0.85);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 5%;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-container img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+      }
+
+      .logo-container h2 {
+        color: var(--gold);
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+      }
+
+      /* NAV */
+
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 12px;
+        transition: 0.35s;
+        display: block;
+        font-weight: 500;
+      }
+
+      .nav-link:hover {
+        background: rgba(212, 175, 55, 0.12);
+        color: var(--gold);
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 260px;
+        background: #181818;
+        list-style: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: 0.35s;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .has-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 14px 18px;
+        transition: 0.3s;
+      }
+
+      .dropdown-menu li a:hover {
+        background: rgba(212, 175, 55, 0.1);
+        color: var(--gold);
+      }
+
+      /* MAIN */
+
+      main {
+        width: min(1400px, 92%);
+        margin: auto;
+        padding: 60px 0;
+      }
+
+      /* TITULO */
+
+      .titulo {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 60px;
+        color: white;
+        position: relative;
+        animation: fadeUp 1s ease;
+      }
+
+      .titulo::after {
+        content: "";
+        width: 180px;
+        height: 4px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        display: block;
+        margin: 18px auto;
+      }
+
+      /* SECCIONES */
+
+      section {
+        background: var(--glass);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 25px;
+        padding: 35px;
+        margin-bottom: 35px;
+        animation: fadeUp 0.8s ease;
+      }
+
+      section:hover {
+        border-color: rgba(212, 175, 55, 0.3);
+      }
+
+      /* SUBTITULOS */
+
+      .subtitulo {
+        color: var(--gold);
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+        border-left: 5px solid var(--gold);
+        padding-left: 15px;
+      }
+
+      /* ACTORES */
+
+      #actores p {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      #actores strong {
+        background: linear-gradient(135deg, #d4af37, #f0d77a);
+        color: #111;
+        padding: 12px 22px;
+        border-radius: 40px;
+        font-size: 0.95rem;
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+      }
+
+      /* IMAGENES */
+
+      .card {
+        background: var(--dark-2);
+        border-radius: 25px;
+        overflow: hidden;
+        margin: 25px 0;
+        transition: 0.4s;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .card img {
+        width: 100%;
+        display: block;
+        transition: 0.5s;
+      }
+
+      .card:hover img {
+        transform: scale(1.03);
+      }
+
+      /* ENTREVISTA */
+
+      #entrevista ul {
+        margin-top: 15px;
+        margin-bottom: 30px;
+      }
+
+      #entrevista li {
+        list-style: none;
+        margin-bottom: 12px;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 4px solid var(--gold);
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      #entrevista li:hover {
+        transform: translateX(8px);
+        background: rgba(212, 175, 55, 0.08);
+      }
+
+      #entrevista p strong {
+        color: var(--gold-light);
+        font-size: 1.1rem;
+      }
+
+      /* FOOTER */
+
+      footer {
+        background: #0a0a0a;
+        margin-top: 60px;
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .footer-contenido {
+        width: min(1200px, 92%);
+        margin: auto;
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .footer-contenido h3 {
+        color: var(--gold);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      .footer-info {
+        margin: 25px 0;
+      }
+
+      .footer-info p {
+        margin: 10px 0;
+      }
+
+      footer hr {
+        border: none;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 25px 0;
+      }
+
+      /* ANIMACIONES */
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          box-shadow: 0 0 0 rgba(212, 175, 55, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        100% {
+          box-shadow: 0 0 0 rgba(212, 175, 55, 0.3);
+        }
+      }
+
+      .card:hover {
+        animation: pulseGlow 2s infinite;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 992px) {
+        header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-menu {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .titulo {
+          font-size: 2.2rem;
+        }
+
+        .subtitulo {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 25px;
+        }
+
+        .titulo {
+          font-size: 1.8rem;
+        }
+
+        .logo-container h2 {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Logo Royal Barber" />
+        <h2>ROYAL BARBER CLUB</h2>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="marco_teorico_redisenado.html" class="nav-link"
+              >Marco Teórico</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a href="marco_teorico_redisenado.html#introduccion"
+                  >Introducción</a
+                >
+              </li>
+              <li>
+                <a href="marco_teorico_redisenado.html#antecedentes"
+                  >Antecedentes</a
+                >
+              </li>
+              <li>
+                <a href="marco_teorico_redisenado.html#planteamiento"
+                  >Planteamiento</a
+                >
+              </li>
+              <li>
+                <a href="marco_teorico_redisenado.html#objetivos"
+                  >Propositos del Estudio</a
+                >
+              </li>
+              <li>
+                <a href="marco_teorico_redisenado.html#metodologia"
+                  >Metodología</a
+                >
+              </li>
+              <li>
+                <a href="marco_teorico_redisenado.html#justificacion"
+                  >Justificación</a
+                >
+              </li>
+              <li>
+                <a href="marco_teorico.html#planificacionn"
+                  >Planificación de Actividades</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="analisis_estructurado_redisenado.html" class="nav-link"
+              >Análisis Estructurado</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a href="analisis_estructurado_redisenado.html#dfd"
+                  >Diagramas DFD</a
+                >
+              </li>
+              <li>
+                <a href="analisis_estructurado_redisenado.html#diccionario"
+                  >Diccionario de Datos</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="orientado_objetos.html" class="nav-link"
+              >Orientado A Objetos</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a href="orientado_objetos.html#actores">Actores del Sistema</a>
+              </li>
+              <li><a href="orientado_objetos.html#uml">Diagramas UML</a></li>
+              <li>
+                <a href="orientado_objetos.html#mer">Modelo Entidad Relacion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="videos.html" class="nav-link">Videos</a>
+          </li>
+          <li class="nav-item">
+            <a href="contactos.html" class="nav-link">Contactos</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1 class="titulo">III. ANÁLISIS Y DISEÑO ORIENTADO A OBJETOS</h1>
+      <section id="actores">
+        <h2 class="subtitulo">III.1. Actores del Sistema</h2>
+        <p>
+          <strong>CLIENTE</strong>, <strong>USUARIO</strong>,
+          <strong>ADMINISTRADOR</strong>, <strong>BARBERO</strong>,
+          <strong>ENCARGADO</strong>.
+        </p>
+      </section>
+      <section id="uml">
+        <h2 class="subtitulo">III.2. Diagrama de casos de uso de sistema</h2>
+        <div class="card">
+          <img src="img/casos_uso.png" alt="Casos de Uso" />
+        </div>
+        <h2 class="subtitulo">III.3. Diagrama de casos de uso de negocio</h2>
+        <div class="card">
+          <img src="img/DCUN.jpg" alt="Casos de Uso" />
+        </div>
+        <h2 class="subtitulo">III.4. Diagrama de casos de uso expandido</h2>
+        <div class="card">
+          <img src="img/DCUE.png" alt="Casos de Uso" />
+        </div>
+
+      <section id="uml">
+
+        <h2 class="subtitulo">III.5. Diagrama de Clases UML</h2>
+        <div class="card">
+          <img src="img/uml_clases.png" alt="UML Clases" />
+        </div>
+      </section>
+      <h2 class="subtitulo">III.6. Modelo entidad relación</h2>
+      <div class="card"><img src="img/MER.png" alt="Modelo ER" /></div>
+      <section id="mer"></section>
+
+    </main>
+    <footer>
+      <div class="footer-contenido">
+        <h3>ROYAL BARBER CLUB</h3>
+
+        <p>
+          Sistema de Gestión Integral para la administración de citas,
+          inventario, personal y reportes de Royal Barber Club.
+        </p>
+
+        <div class="footer-info">
+          <p>
+            📍 Puente Rio Seco, Av. Juan Pablo II, Galería Manuel , La Paz,
+            Bolivia
+          </p>
+          <p>📞 +591 69712959</p>
+          <p>✉ royalbarberclub@gmail.com</p>
+        </div>
+
+        <hr />
+
+        <p class="copyright">
+          © 2026 Royal Barber Club. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
