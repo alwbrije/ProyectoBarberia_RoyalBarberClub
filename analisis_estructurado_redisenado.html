@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analisis Estructurado - Royal Barber Club</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Poppins, sans-serif;
+        background: radial-gradient(circle at top right, #1e293b, #0f172a 60%);
+        color: #e5e7eb;
+      }
+
+      .navbar {
+        background: rgba(15, 23, 42, 0.95) !important;
+        backdrop-filter: blur(12px);
+      }
+
+      .gold {
+        color: #d4af37 !important;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 70vh;
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)),
+          url("img/fondo2.jpg") center/cover;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+
+      /* SECCIONES */
+      .section {
+        padding: 100px 0;
+      }
+
+      /* CARDS PREMIUM */
+      .card-premium {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        backdrop-filter: blur(12px);
+
+        border-radius: 25px;
+        padding: 35px;
+        margin-bottom: 35px;
+
+        box-shadow:
+          0 10px 35px rgba(0, 0, 0, 0.35),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+        transition: 0.4s;
+      }
+
+      .card-premium:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      }
+
+      .card-premium h2,
+      .card-premium h3 {
+        color: #d4af37;
+        font-weight: 700;
+      }
+
+      /* IMAGENES DFD */
+      .card-premium img {
+        width: 100%;
+        border-radius: 20px;
+        background: white;
+        padding: 25px;
+
+        border: 4px solid #d4af37;
+
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      }
+
+      /* TABLAS */
+      table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        overflow: hidden;
+        border-radius: 15px;
+        margin-bottom: 40px;
+        background: #111827;
+      }
+
+      table th {
+        background: linear-gradient(135deg, #d4af37, #f7d46b);
+
+        color: #111827;
+        font-weight: 700;
+        padding: 16px;
+        border: none;
+      }
+
+      table td {
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e5e7eb;
+      }
+
+      table tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      table tr:hover {
+        background: rgba(212, 175, 55, 0.08);
+        transition: 0.3s;
+      }
+
+      /* TITULOS */
+      h2 {
+        color: white;
+        font-weight: 800;
+      }
+
+      .subtitulo {
+        color: #d4af37;
+        font-weight: 700;
+      }
+
+      /* DICCIONARIO */
+      #diccionario h3 {
+        color: #f7d46b;
+        margin-top: 40px !important;
+        margin-bottom: 15px !important;
+        padding-left: 15px;
+        border-left: 5px solid #d4af37;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #020617;
+        color: white;
+        padding: 70px 0;
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      footer p {
+        color: #cbd5e1;
+      }
+
+      /* SCROLL */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 20px;
+      }
+
+      /* SECCION DICCIONARIO */
+      .bg-light {
+        background: transparent !important;
+      }
+
+      /* TABLAS RESPONSIVE */
+      .table-responsive {
+        overflow-x: auto;
+        border-radius: 20px;
+      }
+      /* ===================================
+   NAVBAR ULTRA PREMIUM ROYAL BARBER
+=================================== */
+
+      body {
+        padding-top: 90px;
+      }
+
+      /* NAVBAR */
+
+      .navbar {
+        background: rgba(10, 10, 10, 0.78) !important;
+        backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+
+        box-shadow:
+          0 10px 40px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(212, 175, 55, 0.05);
+
+        transition: 0.4s;
+      }
+
+      /* LOGO */
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        font-weight: 800;
+        position: relative;
+      }
+
+      .gold {
+        background: linear-gradient(90deg, #d4af37, #fff2b3, #d4af37);
+
+        background-size: 200% auto;
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: goldMove 5s linear infinite;
+      }
+
+      @keyframes goldMove {
+        from {
+          background-position: 0% center;
+        }
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      /* LINKS */
+
+      .navbar-nav {
+        gap: 8px;
+      }
+
+      .nav-link {
+        color: white !important;
+
+        padding: 12px 18px !important;
+
+        border-radius: 14px;
+
+        font-weight: 500;
+
+        transition: 0.35s;
+
+        position: relative;
+      }
+
+      /* EFECTO HOVER */
+
+      .nav-link:hover {
+        color: #d4af37 !important;
+
+        background: rgba(212, 175, 55, 0.08);
+
+        transform: translateY(-3px);
+      }
+
+      /* LINEA DORADA */
+
+      .nav-link::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+        bottom: 6px;
+
+        width: 0;
+        height: 2px;
+
+        background: #d4af37;
+
+        transition: 0.35s;
+
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 65%;
+      }
+
+      /* ITEM ACTIVO */
+
+      .nav-link.active {
+        color: #d4af37 !important;
+        background: rgba(212, 175, 55, 0.08);
+      }
+
+      /* ===================================
+   DROPDOWN PREMIUM
+=================================== */
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: block;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(20px) scale(0.96);
+
+        transition: 0.35s;
+
+        background: rgba(12, 12, 12, 0.96);
+
+        backdrop-filter: blur(25px);
+
+        border: 1px solid rgba(212, 175, 55, 0.15);
+
+        border-radius: 20px;
+
+        min-width: 280px;
+
+        padding: 12px;
+
+        margin-top: 18px;
+
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(212, 175, 55, 0.08);
+      }
+
+      /* APARECE CON HOVER */
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+
+        transform: translateY(0) scale(1);
+      }
+
+      /* ITEMS */
+
+      .dropdown-item {
+        color: #ddd;
+
+        padding: 12px 15px;
+
+        border-radius: 12px;
+
+        transition: 0.3s;
+      }
+
+      .dropdown-item:hover {
+        color: #d4af37;
+
+        background: rgba(212, 175, 55, 0.1);
+
+        transform: translateX(8px);
+      }
+
+      /* BRILLO DEL MENU */
+
+      .dropdown-menu::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        border-radius: 20px;
+
+        padding: 1px;
+
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.35),
+          transparent,
+          rgba(212, 175, 55, 0.15)
+        );
+
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+
+        -webkit-mask-composite: xor;
+
+        pointer-events: none;
+      }
+
+      /* TOGGLER */
+
+      .navbar-toggler {
+        border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none !important;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          margin-top: 20px;
+
+          padding: 20px;
+
+          border-radius: 20px;
+
+          background: rgba(15, 15, 15, 0.96);
+
+          border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .dropdown-menu {
+          display: none;
+
+          opacity: 1;
+          visibility: visible;
+
+          transform: none;
+
+          margin-top: 10px;
+        }
+
+        .dropdown-menu.show {
+          display: block;
+        }
+      }
+      .navbar::after {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+
+        width: 100%;
+        height: 1px;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.8),
+          transparent
+        );
+
+        animation: lineGlow 4s linear infinite;
+      }
+
+      @keyframes lineGlow {
+        0% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+
+      .section-subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.propositos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    gap: 20px;
+}
+
+.proposito-item {
+    display: flex;
+    gap: 18px;
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    border-left: 5px solid #c9a66b;
+}
+
+.proposito-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(201, 166, 107, 0.15);
+}
+
+.proposito-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    width: 50px;
+}
+
+.proposito-item p {
+    margin: 0;
+    line-height: 1.65;
+    color: #333;
+}
+
+.proposito-item strong {
+    color: #1a1a1a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .propositos-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .proposito-item {
+        padding: 22px;
+    }
+}
+.section-subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 1.25rem;
+    margin-bottom: 60px;
+}
+
+.roles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.role-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-8px);
+}
+
+.role-header {
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.role-icon {
+    font-size: 2rem;
+}
+
+.role-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.events-list {
+    padding: 20px;
+}
+
+.event-item {
+    display: flex;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.event-item:last-child {
+    border-bottom: none;
+}
+
+.event-number {
+    background: #c9a66b;
+    color: white;
+    font-weight: bold;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.event-item p {
+    margin: 0;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .roles-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2.3rem;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand gold fw-bold" href="#">ROYAL BARBER CLUB</a>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="marco_teorico_redisenado.html"
+              >
+                Marco Teórico
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#introduccion"
+                  >
+                    Introducción
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#antecedentes"
+                  >
+                    Antecedentes
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#planteamiento"
+                  >
+                    Planteamiento
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#objetivos"
+                  >
+                    Propósitos del Estudio
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Análisis Estructurado</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="orientado_objetos.html">
+                Orientado a objetos
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="orientado_objetos.html#actores"
+                  >
+                    Actores del sistema
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="orientado_objetos.html#uml">
+                    Diagramas UML
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="orientado_objetos.html#mer">
+                    Diagrama Entidad Relacion
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="videos.html">Videos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactos.html">Contactos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container text-center">
+        <h1 class="display-3 fw-bold">Análisis y Diseño Estructurado</h1>
+        <p class="lead">Royal Barber Club</p>
+        <a href="#dfd" class="btn btn-warning btn-lg">Explorar</a>
+      </div>
+    </section>
+
+    <section id="dfd" class="section">
+      <div class="container">
+        <h2 class="text-center mb-5">Modelo ambiental</h2>
+        <div class="card-premium mb-4">
+          <!-- === DECLARACIÓN DE PROPÓSITOS === -->
+<section class="propositos-section">
+    <div class="propositos-container">
+        <h2 class="section-title">Declaración de Propósitos</h2>
+        <p class="section-subtitle">La implementación de este sistema tiene como propósitos principales:</p>
+
+        <div class="propositos-list">
+            <div class="proposito-item">
+                <span class="proposito-icon">📍</span>
+                <p><strong>Centralizar la gestión operativa:</strong> Unificar el control de las sucursales Senkata y Villa Adela en una sola plataforma accesible para el administrador.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">📅</span>
+                <p><strong>Digitalizar la agenda de servicios:</strong> Gestionar en tiempo real las citas previas (vía WhatsApp) y las atenciones de clientes que llegan sin reserva (walk-in).</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">👥</span>
+                <p><strong>Optimizar el control de personal:</strong> Registrar de manera exacta la asistencia, horarios (jornada completa/medio tiempo) y estados de disponibilidad (activo, vacaciones, permisos).</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">📦</span>
+                <p><strong>Controlar el inventario y stock:</strong> Supervisar la entrada y salida de productos, estableciendo alertas de stock bajo y controlando fechas de caducidad.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">💰</span>
+                <p><strong>Monitorear la salud financiera:</strong> Facilitar el registro de ventas (Efectivo/QR) y generar cierres de caja diarios y semanales por sucursal.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">📊</span>
+                <p><strong>Evaluar el rendimiento mediante métricas:</strong> Generar reportes visuales sobre la productividad de cada barbero y los servicios más solicitados.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">🎓</span>
+                <p><strong>Formalizar la capacitación interna:</strong> Registrar sistemáticamente las reuniones y capacitaciones, incluyendo la asistencia de barberos e instructores.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">🔄</span>
+                <p><strong>Garantizar la escalabilidad del negocio:</strong> Estructurar el sistema de modo que permita la adición de nuevas sucursales en el futuro sin comprometer la integridad de los datos actuales.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">🌐</span>
+                <p><strong>Habilitar un Portal de Autoservicio para el Cliente:</strong> Proveer una interfaz web donde el usuario externo pueda consultar de manera autónoma el catálogo de servicios, promociones y disponibilidad de barberos en tiempo real.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">❤️</span>
+                <p><strong>Digitalizar la interacción y fidelización:</strong> Permitir que el cliente acceda a su perfil personal para gestionar sus propias reservas, consultar su historial de estilos y verificar el estado de sus beneficios o puntos de fidelidad.</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">📱</span>
+                <p><strong>Asegurar la accesibilidad Multiplataforma:</strong> Desarrollar el sistema bajo un entorno web responsivo que garantice una experiencia de usuario fluida tanto para el personal administrativo como para los clientes desde cualquier dispositivo (PC, tablet o móvil).</p>
+            </div>
+            
+            <div class="proposito-item">
+                <span class="proposito-icon">💬</span>
+                <p><strong>Implementar un Asistente Virtual Informativo (Chatbot):</strong> Integrar un canal de consulta automatizado basado en opciones preconfiguradas, permitiendo que el cliente obtenga información inmediata sobre horarios, ubicación de sucursales y servicios sin intervención manual.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        </div>
+        <div class="card-premium mb-4">
+          <h3>Diagrama de contexto</h3>
+          <img src="img/Dcontexto.png" class="img-fluid" />
+        </div>
+        <div class="card-premium mb-4">
+          <!-- === LISTA DE ACONTECIMIENTOS === -->
+<section class="acontecimientos-section">
+    <div class="acontecimientos-container">
+        <h2 class="section-title">Lista de Acontecimientos</h2>
+        <p class="section-subtitle">Escenarios principales del Sistema de Gestión Royal Barber Club</p>
+
+        <div class="timeline">
+            
+            <!-- Cliente -->
+            <div class="role-group">
+                <h3 class="role-title">👤 Cliente</h3>
+                <div class="events-list">
+                    <div class="event-item">
+                        <span class="event-number">1</span>
+                        <p>Consulta los servicios disponibles, visualizando precios, descripción y disponibilidad de horarios.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">2</span>
+                        <p>Solicita un servicio proporcionando la información necesaria para validar disponibilidad.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">3</span>
+                        <p>Realiza una reserva seleccionando servicio, fecha, hora, sucursal y barbero.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">4</span>
+                        <p>Realiza el pago del servicio mediante los métodos habilitados (efectivo o QR).</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">5</span>
+                        <p>Recibe confirmación de su reserva una vez validada la disponibilidad.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">6</span>
+                        <p>Cancela un servicio previamente reservado, liberando el horario automáticamente.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">7</span>
+                        <p>Consulta su historial completo de servicios, reservas y pagos.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">8</span>
+                        <p>Recibe información de promociones, descuentos y novedades.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrador -->
+            <div class="role-group">
+                <h3 class="role-title">👔 Administrador</h3>
+                <div class="events-list">
+                    <div class="event-item">
+                        <span class="event-number">9</span>
+                        <p>Registra la hora de ingreso y salida de empleados (control de asistencia).</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">11</span>
+                        <p>Registra un nuevo empleado con sus datos personales, rol y horarios.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">12</span>
+                        <p>Recibe reportes de clientes registrados y su comportamiento.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">13</span>
+                        <p>Gestiona combos, promociones y descuentos especiales.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">15</span>
+                        <p>Gestiona los servicios ofrecidos (precios, descripciones, etc.).</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">16</span>
+                        <p>Solicita reportes de ventas e ingresos.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">18</span>
+                        <p>Gestiona las sucursales del sistema.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">20</span>
+                        <p>Gestiona pagos y comisiones de los barberos.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">21</span>
+                        <p>Gestiona los datos de las marcas con las que colabora.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Encargado -->
+            <div class="role-group">
+                <h3 class="role-title">🔧 Encargado</h3>
+                <div class="events-list">
+                    <div class="event-item">
+                        <span class="event-number">22</span>
+                        <p>Gestiona la agenda de atención y disponibilidad de servicios.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">23</span>
+                        <p>Realiza la gestión de caja y movimientos financieros diarios.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">24</span>
+                        <p>Registra y administra el inventario de productos.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">25</span>
+                        <p>Entrega productos para servicios o venta, actualizando el stock automáticamente.</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-number">26</span>
+                       
+        </div>
+        <h2 class="text-center mb-5">Diagramas DFD por niveles</h2>
+        <div class="card-premium mb-4">
+          <h3>DFD Nivel 0</h3>
+          <img src="img/dfd_nivel_0.jpg" class="img-fluid" />
+        </div>
+        <div class="card-premium mb-4">
+          <h3>DFD Nivel 1</h3>
+          <img src="img/dfd_nivel_1.jpg" class="img-fluid" />
+        </div>
+        <div class="card-premium mb-4">
+          <h3>DFD Nivel 2</h3>
+          <img src="img/dfd_nivel_2.jpg" class="img-fluid" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="card-premium">
+          <h2>Diccionario de Datos</h2>
+          <section id="diccionario">
+            <h2 class="subtitulo">II.4. Diccionario de datos</h2>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: USUARIO</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idUsuario</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del usuario</td>
+              </tr>
+              <tr>
+                <td>nombreUsuario</td>
+                <td>VARCHAR</td>
+                <td>20</td>
+                <td>NO</td>
+                <td></td>
+                <td>Nombre de usuario para inicio de sesión</td>
+              </tr>
+              <tr>
+                <td>password</td>
+                <td>VARCHAR</td>
+                <td>30</td>
+                <td>NO</td>
+                <td></td>
+                <td>Contraseña cifrada del usuario</td>
+              </tr>
+              <tr>
+                <td>correo Electronico</td>
+                <td>VARCHAR</td>
+                <td>30</td>
+                <td>NO</td>
+                <td></td>
+                <td>Correo electrónico asociado a la cuenta</td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: EMPLEADO</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idEmpleado</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del empleado</td>
+              </tr>
+              <tr>
+                <td>idUsuario</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Referencia al usuario del sistema asociado</td>
+              </tr>
+              <tr>
+                <td>nombre</td>
+                <td>VARCHAR</td>
+                <td>40</td>
+                <td>NO</td>
+                <td></td>
+                <td>Nombre completo del empleado</td>
+              </tr>
+              <tr>
+                <td>ci</td>
+                <td>VARCHAR</td>
+                <td>20</td>
+                <td>NO</td>
+                <td></td>
+                <td>Cédula de identidad del empleado</td>
+              </tr>
+              <tr>
+                <td>teléfono</td>
+                <td>VARCHAR</td>
+                <td>20</td>
+                <td>NO</td>
+                <td></td>
+                <td>Número de contacto del empleado</td>
+              </tr>
+              <tr>
+                <td>dirección</td>
+                <td>VARCHAR</td>
+                <td>100</td>
+                <td>Si</td>
+                <td></td>
+                <td>Dirección domiciliaria del empleado</td>
+              </tr>
+              <tr>
+                <td>fechaNacimiento</td>
+                <td>DATE</td>
+                <td></td>
+                <td>NO</td>
+                <td></td>
+                <td>Fecha de nacimiento del empleado</td>
+              </tr>
+              <tr>
+                <td>foto</td>
+                <td>VARCHAR</td>
+                <td>255</td>
+                <td>Si</td>
+                <td></td>
+                <td>Ruta o URL de la foto de perfil</td>
+              </tr>
+              <tr>
+                <td>horario</td>
+                <td>VARCHAR</td>
+                <td>100</td>
+                <td>NO</td>
+                <td></td>
+                <td>Horario de trabajo asignado</td>
+              </tr>
+              <tr>
+                <td>estado</td>
+                <td>VARCHAR</td>
+                <td>20</td>
+                <td>NO</td>
+                <td></td>
+                <td>Estado laboral (activo / inactivo)</td>
+              </tr>
+              <tr>
+                <td>rol</td>
+                <td>VARCHAR</td>
+                <td>50</td>
+                <td>NO</td>
+                <td></td>
+                <td>
+                  Rol dentro de la barberia (barbero, administrador, etc.)
+                </td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: BARBERO</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idBarbero</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del barbero</td>
+              </tr>
+              <tr>
+                <td>idEmpleado</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Referencia al registro de empleado base</td>
+              </tr>
+              <tr>
+                <td>especialidad</td>
+                <td>VARCHAR</td>
+                <td>40</td>
+                <td>Sí</td>
+                <td></td>
+                <td>Área de especialización del barbero</td>
+              </tr>
+              <tr>
+                <td>comision Base</td>
+                <td>DECIMAL</td>
+                <td>10.2</td>
+                <td>SÍ</td>
+                <td></td>
+                <td>Porcentaje o monto base de comisión por servicio</td>
+              </tr>
+              <tr>
+                <td>idSucursal</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Identificador único de la sucursal</td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: CLIENTE</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idCliente</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del cliente</td>
+              </tr>
+              <tr>
+                <td>idUsuario</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Referencia al usuario del sistema (si tiene cuenta)</td>
+              </tr>
+              <tr>
+                <td>nombre</td>
+                <td>VARCHAR</td>
+                <td>100</td>
+                <td>NO</td>
+                <td></td>
+                <td>Nombre completo del cliente</td>
+              </tr>
+              <tr>
+                <td>teléfono</td>
+                <td>VARCHAR</td>
+                <td>20</td>
+                <td>SÍ</td>
+                <td></td>
+                <td>Número de contacto del cliente</td>
+              </tr>
+              <tr>
+                <td>ci</td>
+                <td>VARCHAR</td>
+                <td>20</td>
+                <td>Si</td>
+                <td></td>
+                <td>Cédula de identidad del cliente</td>
+              </tr>
+              <tr>
+                <td>fechaNacimiento</td>
+                <td>DATE</td>
+                <td></td>
+                <td>Si</td>
+                <td></td>
+                <td>Fecha de nacimiento del cliente</td>
+              </tr>
+              <tr>
+                <td>oficio</td>
+                <td>VARCHAR</td>
+                <td>100</td>
+                <td>Si</td>
+                <td></td>
+                <td>Ocupación o profesión del cliente</td>
+              </tr>
+              <tr>
+                <td>puntosGanados</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td></td>
+                <td>
+                  Puntos acumulados por el cliente en el programa de fidelidad
+                </td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: SERVICIO</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idServicio</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del servicio</td>
+              </tr>
+              <tr>
+                <td>nombre</td>
+                <td>VARCHAR</td>
+                <td>100</td>
+                <td>NO</td>
+                <td></td>
+                <td>Nombre del servicio ofrecido</td>
+              </tr>
+              <tr>
+                <td>descripción</td>
+                <td>TEXT</td>
+                <td></td>
+                <td>Si</td>
+                <td></td>
+                <td>Descripción detallada del servicio</td>
+              </tr>
+              <tr>
+                <td>precio</td>
+                <td>DECIMAL</td>
+                <td>10,2</td>
+                <td>NO</td>
+                <td></td>
+                <td>Precio estándar del servicio</td>
+              </tr>
+              <tr>
+                <td>duracionAproximada</td>
+                <td>INT</td>
+                <td></td>
+                <td>SÍ</td>
+                <td></td>
+                <td>Duración estimada del servicio en minutos</td>
+              </tr>
+              <tr>
+                <td>comisionBarbero</td>
+                <td>DECIMAL</td>
+                <td>0.50</td>
+                <td>NO</td>
+                <td></td>
+                <td>50% de comisión para el barbero al realizar el servicio</td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: CITA/RESERVA</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idReserva</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único de la cita / reserva</td>
+              </tr>
+              <tr>
+                <td>idCliente</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Cliente que realiza la cita</td>
+              </tr>
+              <tr>
+                <td>idBarbero</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Barbero asignado para atender la cita</td>
+              </tr>
+              <tr>
+                <td>fecha</td>
+                <td>DATE</td>
+                <td></td>
+                <td>NO</td>
+                <td></td>
+                <td>Fecha programada de la cita</td>
+              </tr>
+              <tr>
+                <td>hora</td>
+                <td>TIME</td>
+                <td></td>
+                <td>NO</td>
+                <td></td>
+                <td>Hora programada de la cita</td>
+              </tr>
+              <tr>
+                <td>estado</td>
+                <td>VARCHAR</td>
+                <td>30</td>
+                <td>NO</td>
+                <td></td>
+                <td>
+                  Estado de la cita (pendiente, confirmada, cancelada,
+                  completada)
+                </td>
+              </tr>
+              <tr>
+                <td>detalles</td>
+                <td>TEXT</td>
+                <td></td>
+                <td>Sí</td>
+                <td></td>
+                <td>Observaciones o detalles adicionales de la cita</td>
+              </tr>
+              <tr>
+                <td>monto TotalAdelantado</td>
+                <td>DECIMAL</td>
+                <td>10,2</td>
+                <td>SI</td>
+                <td></td>
+                <td>Monto adelantado o al momento de reservar</td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: ATENCION</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idAtencion</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del registro de atención</td>
+              </tr>
+              <tr>
+                <td>idCita</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>Sí</td>
+                <td>FK</td>
+                <td>Cita de origen de esta atención</td>
+              </tr>
+              <tr>
+                <td>idBarbero</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Empleado que realizó la atención</td>
+              </tr>
+              <tr>
+                <td>fecha</td>
+                <td>DATE</td>
+                <td></td>
+                <td>NO</td>
+                <td></td>
+                <td>Fecha en que se realizó la atención</td>
+              </tr>
+              <tr>
+                <td>hora</td>
+                <td>TIME</td>
+                <td></td>
+                <td>NO</td>
+                <td></td>
+                <td>Hora de inicio de la atención</td>
+              </tr>
+              <tr>
+                <td>monto Total</td>
+                <td>DECIMAL</td>
+                <td>10,2</td>
+                <td>NO</td>
+                <td></td>
+                <td>Monto total cobrado por la atención</td>
+              </tr>
+              <tr>
+                <td>valoración</td>
+                <td>INT</td>
+                <td></td>
+                <td>SI</td>
+                <td></td>
+                <td>Calificación del cliente sobre la atención (escala 1-5)</td>
+              </tr>
+              <tr>
+                <td>idCliente</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Cliente recibe la atención</td>
+              </tr>
+            </table>
+
+            <h3 style="margin: 20px 0 10px 0">Tabla: INVENTARIO</h3>
+            <table
+              border="1"
+              style="width: 100%; border-collapse: collapse; text-align: left"
+            >
+              <tr style="background-color: var(--border-color)">
+                <th>Campo</th>
+                <th>Tipo de Dato</th>
+                <th>Longitud</th>
+                <th>Nulo</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>idInventario</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>PK</td>
+                <td>Identificador único del registro de inventario</td>
+              </tr>
+              <tr>
+                <td>idProducto</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td>FK</td>
+                <td>Producto al que corresponde el inventario</td>
+              </tr>
+              <tr>
+                <td>idSucursal</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>Sí</td>
+                <td>FK</td>
+                <td>Sucursal donde se ubica el stock</td>
+              </tr>
+              <tr>
+                <td>stockActual</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>NO</td>
+                <td></td>
+                <td>Cantidad actual disponible en stock</td>
+              </tr>
+              <tr>
+                <td>stockMinimo</td>
+                <td>INT</td>
+                <td>11</td>
+                <td>Si</td>
+                <td></td>
+                <td>Cantidad mínima permitida antes de alertar reposición</td>
+              </tr>
+            </table>
+
+            <p>
+              <em
+                >* El resto de tablas de intersección (ASISTENCIA, CAPACITACION,
+                OFERTA, PROMOCION, PRODUCTOS) siguen la misma normalización
+                relacional detallada en el documento oficial.</em
+              >
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container text-center">
+        <h3 class="gold">ROYAL BARBER CLUB</h3>
+        <p>
+          Sistema de Gestión Integral para la administración de citas,
+          inventario, personal y reportes.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

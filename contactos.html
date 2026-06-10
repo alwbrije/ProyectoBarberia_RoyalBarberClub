@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contactos | Royal Barber Club</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --gold: #d4af37;
+        --dark: #0f172a;
+        --dark2: #111827;
+        --light: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at top, #1e293b, #0f172a 70%);
+        color: white;
+      }
+
+      .navbar {
+        background: rgba(15, 23, 42, 0.95) !important;
+        backdrop-filter: blur(10px);
+      }
+
+      .gold {
+        color: var(--gold) !important;
+      }
+
+      .hero {
+        min-height: 60vh;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+          url("https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1600")
+            center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+      }
+
+      .hero p {
+        color: #ddd;
+        font-size: 1.2rem;
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
+        padding: 35px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      .integrante-box {
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 4px solid var(--gold);
+        padding: 15px 20px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        transition: 0.3s;
+      }
+
+      .integrante-box:hover {
+        transform: translateX(8px);
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .section-title {
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 30px;
+      }
+
+      .contact-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+      }
+
+      .contact-item:hover {
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .horarios {
+        margin-top: 30px;
+        padding: 25px;
+        border-radius: 20px;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .map-section {
+        padding-bottom: 100px;
+      }
+
+      .map-wrapper {
+        overflow: hidden;
+        border-radius: 25px;
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      }
+
+      iframe {
+        display: block;
+      }
+
+      footer {
+        background: #020617;
+        padding: 70px 0;
+        text-align: center;
+      }
+
+      footer h3 {
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      footer p {
+        color: #cbd5e1;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+      /* ===================================
+   NAVBAR ULTRA PREMIUM ROYAL BARBER
+=================================== */
+
+      body {
+        padding-top: 90px;
+      }
+
+      /* NAVBAR */
+
+      .navbar {
+        background: rgba(10, 10, 10, 0.78) !important;
+        backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+
+        box-shadow:
+          0 10px 40px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(212, 175, 55, 0.05);
+
+        transition: 0.4s;
+      }
+
+      /* LOGO */
+
+      .navbar-brand {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        font-weight: 800;
+        position: relative;
+      }
+
+      .gold {
+        background: linear-gradient(90deg, #d4af37, #fff2b3, #d4af37);
+
+        background-size: 200% auto;
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: goldMove 5s linear infinite;
+      }
+
+      @keyframes goldMove {
+        from {
+          background-position: 0% center;
+        }
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      /* LINKS */
+
+      .navbar-nav {
+        gap: 8px;
+      }
+
+      .nav-link {
+        color: white !important;
+
+        padding: 12px 18px !important;
+
+        border-radius: 14px;
+
+        font-weight: 500;
+
+        transition: 0.35s;
+
+        position: relative;
+      }
+
+      /* EFECTO HOVER */
+
+      .nav-link:hover {
+        color: #d4af37 !important;
+
+        background: rgba(212, 175, 55, 0.08);
+
+        transform: translateY(-3px);
+      }
+
+      /* LINEA DORADA */
+
+      .nav-link::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+        bottom: 6px;
+
+        width: 0;
+        height: 2px;
+
+        background: #d4af37;
+
+        transition: 0.35s;
+
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 65%;
+      }
+
+      /* ITEM ACTIVO */
+
+      .nav-link.active {
+        color: #d4af37 !important;
+        background: rgba(212, 175, 55, 0.08);
+      }
+
+      /* ===================================
+   DROPDOWN PREMIUM
+=================================== */
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: block;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(20px) scale(0.96);
+
+        transition: 0.35s;
+
+        background: rgba(12, 12, 12, 0.96);
+
+        backdrop-filter: blur(25px);
+
+        border: 1px solid rgba(212, 175, 55, 0.15);
+
+        border-radius: 20px;
+
+        min-width: 280px;
+
+        padding: 12px;
+
+        margin-top: 18px;
+
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(212, 175, 55, 0.08);
+      }
+
+      /* APARECE CON HOVER */
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+
+        transform: translateY(0) scale(1);
+      }
+
+      /* ITEMS */
+
+      .dropdown-item {
+        color: #ddd;
+
+        padding: 12px 15px;
+
+        border-radius: 12px;
+
+        transition: 0.3s;
+      }
+
+      .dropdown-item:hover {
+        color: #d4af37;
+
+        background: rgba(212, 175, 55, 0.1);
+
+        transform: translateX(8px);
+      }
+
+      /* BRILLO DEL MENU */
+
+      .dropdown-menu::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        border-radius: 20px;
+
+        padding: 1px;
+
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.35),
+          transparent,
+          rgba(212, 175, 55, 0.15)
+        );
+
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+
+        -webkit-mask-composite: xor;
+
+        pointer-events: none;
+      }
+
+      /* TOGGLER */
+
+      .navbar-toggler {
+        border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none !important;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          margin-top: 20px;
+
+          padding: 20px;
+
+          border-radius: 20px;
+
+          background: rgba(15, 15, 15, 0.96);
+
+          border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .dropdown-menu {
+          display: none;
+
+          opacity: 1;
+          visibility: visible;
+
+          transform: none;
+
+          margin-top: 10px;
+        }
+
+        .dropdown-menu.show {
+          display: block;
+        }
+      }
+      .navbar::after {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+
+        width: 100%;
+        height: 1px;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.8),
+          transparent
+        );
+
+        animation: lineGlow 4s linear infinite;
+      }
+
+      @keyframes lineGlow {
+        0% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+      .integrante-box {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        padding: 15px;
+        margin-bottom: 15px;
+
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 15px;
+
+        transition: all 0.3s ease;
+      }
+
+      .integrante-box:hover {
+        transform: translateX(8px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #d4af37;
+      }
+
+      .integrante-img {
+        width: 65px;
+        height: 65px;
+
+        border-radius: 50%;
+        object-fit: cover;
+
+        border: 3px solid #d4af370a;
+
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      }
+
+      .integrante-box span {
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold gold" href="#"> ROYAL BARBER CLUB </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="marco_teorico_redisenado.html"
+              >
+                Marco Teórico
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#introduccion"
+                  >
+                    Introducción
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#antecedentes"
+                  >
+                    Antecedentes
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#planteamiento"
+                  >
+                    Planteamiento
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="marco_teorico_redisenado.html#objetivos"
+                  >
+                    Propósitos del Estudio
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="analisis_estructurado_redisenado.html">
+                Análisis Estructurado
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="orientado_objetos.html">
+                Orientado a Objetos
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="videos.html"> Videos </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="#"> Contactos </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Contacto del Proyecto</h1>
+
+        <p>Sistema de Gestión Integral para Royal Barber Club</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="gold fw-bold">UNIVERSIDAD MAYOR DE SAN ANDRÉS</h2>
+
+          <p class="text-light">Facultad de Ciencias Puras y Naturales</p>
+
+          <p class="gold">Carrera de Informática</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="glass-card">
+              <h2 class="section-title">Integrantes</h2>
+
+              <div class="integrante-box">
+                <img src="img/sarai.jpg" alt="Sarai" class="integrante-img" />
+                <span>Univ. Aguilar Gisbert Sarai</span>
+              </div>
+
+              <div class="integrante-box">
+                <img
+                  src="img/evo.jpg"
+                  alt="Julio Cesar"
+                  class="integrante-img"
+                />
+                <span>Univ. Cori Mamani Julio Cesar</span>
+              </div>
+
+              <div class="integrante-box">
+                <img
+                  src="img/roberto.jpg"
+                  alt="Roberto Carlos"
+                  class="integrante-img"
+                />
+                <span>Univ. Mamani Quispe Roberto Carlos</span>
+              </div>
+
+              <div class="integrante-box">
+                <img
+                  src="img/jenifer.jpg"
+                  alt="Jenifer Isabel"
+                  class="integrante-img"
+                />
+                <span>Univ. Patti Jenifer Isabel</span>
+              </div>
+
+              <div class="integrante-box">
+                <img
+                  src="img/evo.jpg"
+                  alt="Jordy Alejandro"
+                  class="integrante-img"
+                />
+                <span>Univ. Rodriguez Chacón Jordy Alejandro</span>
+              </div>
+
+              <div class="integrante-box">
+                <img src="img/limber.jpg" alt="Limber" class="integrante-img" />
+                <span>Univ. Yanarico Huanca Limber</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="glass-card">
+              <h2 class="section-title">Contáctanos</h2>
+
+              <p class="mb-4">
+                En Royal Barber Club desarrollamos un Sistema de Gestión
+                Integral para optimizar la administración de citas, clientes,
+                servicios, personal e inventario.
+              </p>
+
+              <div class="contact-item">
+                <strong>1 sucursal </strong>📍 Extranca de senkata - Av
+                Versalles ( a una cuadra del puente )
+              </div>
+
+              <div class="contact-item">
+                <strong>2 sucursal </strong>📍 Plaza del policia - Zona villa
+                adela
+              </div>
+
+              <div class="contact-item">📞 +591 68170427</div>
+
+              <div class="contact-item">✉ royalbarberclub@gmail.com</div>
+
+              <div class="horarios">
+                <h4 class="gold mb-3">
+                  Horarios de Atención - Royal Barber Club
+                </h4>
+
+                <p><strong>Lunes - Viernes:</strong> 10:00 AM - 09:00 PM</p>
+
+                <p><strong>Sábado y Domingo:</strong> 09:00 AM - 08:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="container">
+        <h2 class="text-center gold fw-bold mb-5">Ubicaciónes</h2>
+
+        <div class="map-wrapper">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1864.471326614008!2d-68.18221281480967!3d-16.58443356410629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spuente%20extranca%20senkata!5e0!3m2!1ses-419!2sbo!4v1780893353538!5m2!1ses-419!2sbo" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <br><br>
+          <div class="map-wrapper">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.893981604823!2d-68.20966941260423!3d-16.520069547162407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edef58b78b8d3%3A0x3c23712502f66684!2sPl.%20del%20Policia%2C%20El%20Alto!5e0!3m2!1ses-419!2sbo!4v1780893496055!5m2!1ses-419!2sbo" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <h3>ROYAL BARBER CLUB</h3>
+
+        <p>
+          Sistema de Gestión Integral para la administración de citas,
+          inventario, personal y reportes.
+        </p>
+
+        <hr class="my-4 text-secondary" />
+
+        <p>
+          📍 Puente Río Seco, Av. Juan Pablo II, Galería Manuel, La Paz, Bolivia
+        </p>
+
+        <p>📞 +591 69712959</p>
+
+        <p>✉ royalbarberclub@gmail.com</p>
+
+        <p class="mt-4">
+          © 2026 Royal Barber Club. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+```
